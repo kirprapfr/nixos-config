@@ -28,13 +28,25 @@
     nodejs
     python3
     nerd-fonts.geist-mono
+    mpv
   ];
 
+  #NEMO
+  xdg.desktopEntries.nemo = {
+    name = "Nemo";
+    exec = "${pkgs.nemo-with-extensions}/bin/nemo";
+  };
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+        "inode/directory" = [ "nemo.desktop" ];
+        "application/x-gnome-saved-search" = [ "nemo.desktop" ];
+    };
+  };
 
   #DOTFILES
   home.file.".config/spicetify".source = ./spicetify;
   home.file.".config/kitty".source = ./kitty; 
   home.file.".config/nvim".source = ./nvim;
   home.file.".config/hypr".source = ./hypr;
-  home.file.".config/rofi".source = ./rofi;
 }

@@ -12,12 +12,14 @@
     };
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprland.url = "github:hyprwm/Hyprland";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs = { self, 
   nixpkgs,
   home-manager, 
   spicetify-nix, 
+  awww,
   ... 
   }
 
@@ -43,7 +45,8 @@
           }
           ./flatpak.nix  
       	  ./prismlauncher.nix
-  	  ./firefox.nix
+  	      ./firefox.nix
+  	      ./awww.nix
         ];
       };
     };

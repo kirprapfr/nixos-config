@@ -11,6 +11,8 @@
       ./java.nix
       ./prismlauncher.nix
       ./hyprland.nix
+      ./cad.nix
+      ./vpn.nix
     ];
 
   # Bootloader.
@@ -94,7 +96,7 @@
   users.users."mani" = {
     isNormalUser = true;
     description = "Mani";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -122,7 +124,22 @@
     git
     wofi
   ];
-  programs.waybar.enable = true;
+
+  # In your system configuration.nix
+programs.nix-ld = {
+  enable = true;
+  libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+  ];
+};
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -140,7 +157,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -52,7 +52,8 @@ local menu        = "wofi --show drun"
 hl.on("hyprland.start", function () 
    hl.exec_cmd(terminal)
    hl.exec_cmd("firefox-nightly")
-   hl.exec_cmd("waybar &")
+   hl.exec_cmd("awww-daemon")
+   hl.exec_cmd("awww img ~/.config/hypr/wallpaper.gif")
 end)
 
 
@@ -268,6 +269,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("wofi --show run"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
