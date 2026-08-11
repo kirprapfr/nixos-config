@@ -50,18 +50,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  programs.zsh = {
-  enable = true;
-  ohMyZsh = {
-    enable = true;
-    plugins = [
-      "git"
-      "z"
-    ];
-    theme = "robbyrussell";
-   };
-  
-  };
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true; 
   # Configure keymap in X11
@@ -72,7 +61,28 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  programs.zsh = {
+    enable = true;
 
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    ohMyZsh = {
+      enable = true;
+
+      plugins = [
+        "git"
+        "z"
+        "fzf"
+        "history-substring-search"
+      ];
+
+      theme = "";
+    };
+  };
+  programs.starship = {
+    enable = true;
+  };
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -122,7 +132,12 @@
     wget
     neovim
     git
+    git-lfs
     wofi
+    fzf
+    zoxide
+    zsh-fzf-tab
+    zsh-completions
   ];
 
   # In your system configuration.nix

@@ -29,6 +29,7 @@
     python3
     nerd-fonts.geist-mono
     mpv
+    fastfetch
   ];
 
   #NEMO
