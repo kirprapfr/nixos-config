@@ -3,4 +3,7 @@ return {
   opts = {
     open_files_do_not_replace_types = { "Trouble", "qf", "edgy" },
   },
+  window = {
+    position = "right",
+  },
 }

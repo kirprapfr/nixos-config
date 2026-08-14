@@ -46,8 +46,9 @@
   };
 
   #DOTFILES
-  home.file.".config/spicetify".source = ./spicetify;
-  home.file.".config/kitty".source = ./kitty; 
-  home.file.".config/nvim".source = ./nvim;
-  home.file.".config/hypr".source = ./hypr;
+  xdg.configFile."spicetify".source = ./spicetify;
+  xdg.configFile."kitty".source = ./kitty; 
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./nvim/lua;
+  xdg.configFile."hypr".source = ./hypr;
 }
