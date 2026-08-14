@@ -128,12 +128,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #DO NOT TOUCH -required by other things
     vim 
     wget
     neovim
     git
     git-lfs
     wofi
+
+    pavucontrol
+
     #zsh stuff
     fzf
     zoxide
